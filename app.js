@@ -6,7 +6,7 @@ var db= mongoose.connect('mongodb://localhost/bookAPi');
 var Book = require('./models/bookModel');
 var app = express();
 
-var port = process.env.PORT ||  9005;
+var port = process.env.PORT ||  8000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -17,7 +17,7 @@ app.get('/',function(req,res){
 bookRouter = require('./Routes/bookRoutes')(Book);
 // create router
 
-app.use('/api',bookRouter);
+app.use('/api/books',bookRouter);
 
 
 app.listen(port,function(){
